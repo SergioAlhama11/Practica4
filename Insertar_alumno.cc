@@ -1,10 +1,10 @@
 #include <iostream>
-#include "Alumno.h"
 using std::cout;
 using std::cin;
 using std::endl;
+#include "alumno.h"
 
-//FUNCIÓN PARA COMPROBAR SI EL DNI ES VÁLIDO O NO
+
 bool compruebaDNI(string aux){
   if(aux.length() != 9){return false;}
   for(int i=0; i<8; i++){
@@ -18,47 +18,46 @@ bool compruebaDNI(string aux){
   return true;
 }
 
+
 Alumno InsertaAlumno(){
-  
   cout << "--Insertar alumno--" << endl;
-  
   string dniaux, nombreaux, straux;
-  
   int intaux;
 
-
-
- 
+  //Introduce DNI
   cout << "DNI:  ";
   cin >> dniaux;
+  //Comprobar DNI
   while(!compruebaDNI(straux)) {
     cout << "Error. Formato de DNI incorrecto."<<endl;
     cout << "Introduzcalo de nuevo. DNI:  " << endl;
     cin >> straux;
   }
 
+  //Introduce Nombre
   cout << "Nombre:  ";
   cin >> nombreaux;
 
+  //Introduce Apellido
   cout << "Apellido:  ";
   cin >> straux;
 
-  Alumno alumno(dniaux, nombreaux, straux); 
+  Alumno alumno(dniaux, nombreaux, straux);
 
   int opcion;
 
   do {
-    cout << "¿Quiere insertar información adicional del alumno?" << endl;
-    cout << "\t1. Teléfono:" << alumno.getTelefono() << endl;
-    cout << "\t2. Dirección:" << alumno.getDireccion() << endl;
-    cout << "\t3. Email:" << alumno.getEmail() << endl;
-    cout << "\t4. Último curso matriculado:" << alumno.getCurso() << endl;
-    cout << "\t5. Nº de equipo:" << alumno.getNequipo() << endl;
-    cout << "\t6. Líder de equipo:";
+    cout << "¿Qué otro campo desea rellenar?" << endl;
+    cout << "\n1. Teléfono:" << alumno.getTelefono() << endl;
+    cout << "\n2. Dirección:" << alumno.getDireccion() << endl;
+    cout << "\n3. Email:" << alumno.getEmail() << endl;
+    cout << "\n4. Último curso matriculado:" << alumno.getCurso() << endl;
+    cout << "\n5. Nº de equipo:" << alumno.getNequipo() << endl;
+    cout << "\n6. Líder de equipo:";
     if(alumno.getLider()){cout << "Sí" <<endl;}
     else{cout << "No" << endl;}
-    cout << "\t7. Guardar alumno y salir." << endl;
-    cout << endl;             
+    cout << "\n7. Guardar alumno y salir." << endl;
+    cout << endl;            
 
 
     cout << "Opción número: ";
@@ -93,14 +92,14 @@ Alumno InsertaAlumno(){
            break;
 
        case '5':
-           cout << "Equipo:  ";
+           cout << "Nº de equipo:  ";
            cin >> intaux;
            alumno.setNequipo(intaux);
            cout << "\n";
            break;
 
-       case '6': //Se le considera lider al primer alumno que se inserte de X equipo
-           alumno.setLider(alumno);       
+       case '6':
+           alumno.cambiaLider();   	
            cout << "\n";
            break;
 
@@ -117,4 +116,3 @@ Alumno InsertaAlumno(){
 
   return alumno;
 }
-
