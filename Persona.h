@@ -13,7 +13,7 @@ class Persona{
         string dni_;
         string nombre_;
         string apellidos_;
-        string fechanacimiento_; // dd/mm/aa
+        string fechanacimiento_;
         int telefono_;
         string email_;
         string direccion_;
@@ -24,24 +24,24 @@ class Persona{
         int telefono=0, string direccion="", string email="");
 
         //Modificadores
-        inline void setDNI(string nuevo_dni){dni_ = nuevo_dni;};
+        bool setDNI(string nuevo_dni);
         inline void setNombre(string nuevo_nombre){nombre_ = nuevo_nombre;};
         inline void setApellido(string nuevo_apellidos){apellidos_ = nuevo_apellidos;};
         inline void setFechaNacimiento(int nueva_fecha);
         inline void setDireccion(string nueva_direccion){direccion_ = nueva_direccion;};
         inline void setEmail(string nuevo_email){email_ = nuevo_email;};
-        inline void setTelefono(int nuevo_telefono){telefono_ = nuevo_telefono;};
+        bool setTelefono(int nuevo_telefono);
 
 
         //Observadores
-        inline string getDNI(){return dni_;};
-        inline string getNombre(){return nombre_;};
-        inline string getApellidos(){return apellidos_;};
-        string getApellidosyNombre();
-        inline string getFechaNacimiento(){return fechanacimiento_;};
-        inline string getDireccion(){return direccion_;};
-        inline string getEmail(){return email_;};
-        inline int getTelefono(){return telefono_;};
+        inline string getDNI() const {return dni_;};
+        inline string getNombre() const {return nombre_;};
+        inline string getApellidos() const {return apellidos_;};
+        string getApellidosyNombre() const;
+        inline string getFechaNacimiento() const {return fechanacimiento_;};
+        inline string getDireccion() const {return direccion_;};
+        inline string getEmail() const {return email_;};
+        inline int getTelefono() const {return telefono_;};
 };
 
 
