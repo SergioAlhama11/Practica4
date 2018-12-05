@@ -24,7 +24,7 @@ bool Persona::setDNI(string nuevo_dni){
     return true;
 }
 
-//Comprobar teléfono
+//Comprobación del teléfono
 bool Persona::setTelefono(int nuevo_telefono){
     if ((nuevo_telefono > 100000000) && (nuevo_telefono < 999999999)){
         telefono_ = nuevo_telefono;
